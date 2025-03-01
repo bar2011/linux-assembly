@@ -67,6 +67,28 @@ strprintLF:
 
 	ret
 
+; strinput(char* strBuffer, int length) -> void
+; String input to strBuffer
+; Note: after function strBuffer will have a Line Feed
+strinput:
+	push	rax
+	push	rdi
+	push	rsi
+	push	rdx
+
+	mov	rax, 0		; sys_read
+	mov	rdi, 0		; STDIN
+	mov	rsi, rcx	; address to input
+	mov	rdx, rbx	; max length
+	syscall
+
+	pop	rdx
+	pop	rsi
+	pop	rdi
+	pop	rax
+
+	ret
+
 ; quit() -> void
 ; Quit program (successfully) and restore resources to OS
 quit:
