@@ -64,11 +64,11 @@ intprint:
         push    rdx             ; save used registers to later be restored
 
         mov     rax, rdi        ; move number to rax to match IDIV
-        mov     rbx, 0          ; initialize digit counter
+        xor     rbx, rbx        ; initialize digit counter
 .intprint_digit_loop:
         inc     rbx             ; increment digit counter
 
-        mov     rdx, 0          ; reset remainder register
+        xor     rdx, rdx        ; reset remainder register
         mov     rsi, 10         ; set divsor (for division by 10)
         idiv    rsi             ; perform the division
 
@@ -124,7 +124,7 @@ strinput:
         push    rsi
         push    rdi             ; save used registers to later be restored
 
-        mov     rax, 0          ; sys_read
+        xor     rax, rax        ; sys_read
         mov     rdx, rsi        ; length
         mov     rsi, rdi        ; strBuffer
         mov     rdi, 0          ; STDIN
