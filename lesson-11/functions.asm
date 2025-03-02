@@ -72,7 +72,7 @@ intprint:
 
         cmp     rbx, 0h
         jnz     .intprint_print_loop
-        
+
         pop     rbx             ; restore rbx
 
         ret

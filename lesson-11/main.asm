@@ -10,7 +10,7 @@ _start:
 
 nextNumber:
         inc     rbx
-        
+
         mov     rdi, rbx
         call    intprintLF
 
