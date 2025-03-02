@@ -56,11 +56,8 @@ strprintLF:
 	mov	rcx, 0Ah	; move line feed to rcx
 	push	rcx		; and then to stack
 
-	mov	rax, 1		; sys_write
-	mov	rdi, 1		; STDOUT
-	mov	rsi, rsp	; put rsp (top of stack pointer) as message, because currently line feed is on stack
-	mov	rdx, 1		; length
-	syscall
+	mov	rcx, rsp	; move line feed pointer (stack pointer) to rcx
+	call	strprint
 
 	pop	rcx		; pop line feed from stack
 	pop	rcx		; restore value of rcx
