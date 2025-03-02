@@ -1,9 +1,11 @@
-# Ignore files with no extension
+# Ignore all
 *
 
-# Allow files with extensions
+# Unignore all with extensions
 !*.*
 
-# Ignore object files (.o)
-*.o
+# Unignore all dirs
+!*/
 
+# Ignore object files
+*.o
